@@ -18,6 +18,9 @@ static const variant_info_t ugglite_info = {
     .device = "ugglite",
     .marketname = "",
     .model = "Redmi Note 5A",
+    .axion_processor_info = "Snapdragon_425",
+    .device_camera_info_front = "5",
+    .device_camera_info_rear = "13",
     .build_fingerprint = "",
     .dpi = 260,
 };
@@ -27,6 +30,9 @@ static const variant_info_t ugg_info = {
     .device = "ugg",
     .marketname = "",
     .model = "Redmi Note 5A",
+    .axion_processor_info = "Snapdragon_435",
+    .device_camera_info_front = "5",
+    .device_camera_info_rear = "16",
     .build_fingerprint = "",
     .dpi = 260,
 };
@@ -36,6 +42,9 @@ static const variant_info_t rolex_info = {
     .device = "rolex",
     .marketname = "",
     .model = "Redmi 4A",
+    .axion_processor_info = "Snapdragon_425",
+    .device_camera_info_front = "5",
+    .device_camera_info_rear = "13",
     .build_fingerprint = "",
     .dpi = 280,
 };
@@ -45,6 +54,9 @@ static const variant_info_t riva_info = {
     .device = "riva",
     .marketname = "",
     .model = "Redmi 5A",
+    .axion_processor_info = "Snapdragon_425",
+    .device_camera_info_front = "5",
+    .device_camera_info_rear = "13",
     .build_fingerprint = "",
     .dpi = 280,
 };
@@ -54,6 +66,9 @@ static const variant_info_t land_info = {
     .device = "land",
     .marketname = "",
     .model = "Redmi 3S",
+    .axion_processor_info = "Snapdragon_430",
+    .device_camera_info_front = "5",
+    .device_camera_info_rear = "13",
     .build_fingerprint = "",
     .dpi = 280,
 };
@@ -63,6 +78,9 @@ static const variant_info_t santoni_info = {
     .device = "santoni",
     .marketname = "",
     .model = "Redmi 4X",
+    .axion_processor_info = "Snapdragon_435",
+    .device_camera_info_front = "5",
+    .device_camera_info_rear = "13",
     .build_fingerprint = "",
     .dpi = 280,
 };
@@ -72,6 +90,9 @@ static const variant_info_t prada_info = {
     .device = "prada",
     .marketname = "",
     .model = "Redmi 4",
+    .axion_processor_info = "Snapdragon_430",
+    .device_camera_info_front = "5",
+    .device_camera_info_rear = "13",
     .build_fingerprint = "",
     .dpi = 280,
 };
