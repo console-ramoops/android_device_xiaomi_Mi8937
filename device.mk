@@ -12,9 +12,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
 
-# Dynamic Partitions
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
@@ -110,7 +107,6 @@ PRODUCT_COPY_FILES += \
 
 # Rootdir
 PRODUCT_PACKAGES += \
-    fstab.qcom_ramdisk \
     init.baseband.sh \
     init.goodix.sh \
     init.xiaomi.device.rc \
