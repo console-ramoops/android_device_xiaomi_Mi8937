@@ -46,8 +46,8 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 $(call soong_config_set,libinit,vendor_init_lib,//$(DEVICE_PATH):init_xiaomi_mi8937)
 
 # Kernel
-TARGET_KERNEL_CONFIG := mi8937_defconfig
-TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
+TARGET_KERNEL_CONFIG := Mi8937_defconfig
+TARGET_KERNEL_SOURCE := kernel/xiaomi/mithorium-4.19/kernel
 
 # Partitions
 BOARD_USES_METADATA_PARTITION := true
