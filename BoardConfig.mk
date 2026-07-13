@@ -46,7 +46,7 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_xiaomi_mi8937
 
 # Kernel
-TARGET_KERNEL_CONFIG := mi8937_defconfig
+TARGET_KERNEL_CONFIG := Mi8937_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/mithorium-4.19/kernel
 ifeq ($(TARGET_KERNEL_VERSION),4.19)
 TARGET_KERNEL_CONFIG += \
