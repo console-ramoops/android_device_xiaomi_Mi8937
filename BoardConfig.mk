@@ -8,7 +8,8 @@
 TARGET_USES_MITHORIUM_KERNEL := true
 
 # Partitions
-BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := erofs
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_VENDORIMAGE_PARTITION_SIZE := 536870912
 
 # Explicitly define logical partition locations for non-dynamic setup
