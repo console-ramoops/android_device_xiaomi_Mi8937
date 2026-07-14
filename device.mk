@@ -74,7 +74,9 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.xiaomi_ulysse \
-    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_wt8937
+    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_ulysse.rc \
+    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_wt8937 \
+    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_wt8937.rc
 
 PRODUCT_PACKAGES += \
     liblzma.vendor:64

@@ -1,7 +1,6 @@
 cc_binary {
     name: "android.hardware.biometrics.fingerprint@2.1-service.xiaomi_ulysse",
     defaults: ["hidl_defaults"],
-    init_rc: ["android.hardware.biometrics.fingerprint@2.1-service.xiaomi_ulysse.rc"],
     vintf_fragments: ["android.hardware.biometrics.fingerprint@2.1-service.xiaomi_ulysse.xml"],
     device_specific: true,
     relative_install_path: "hw",
@@ -19,4 +18,11 @@ cc_binary {
         "libutils",
         "android.hardware.biometrics.fingerprint@2.1",
     ],
+}
+
+prebuilt_etc {
+    name: "android.hardware.biometrics.fingerprint@2.1-service.xiaomi_ulysse.rc",
+    src: "android.hardware.biometrics.fingerprint@2.1-service.xiaomi_ulysse.rc",
+    sub_dir: "init",
+    device_specific: true,
 }
