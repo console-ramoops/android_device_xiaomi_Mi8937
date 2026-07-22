@@ -38,8 +38,11 @@ TARGET_SCREEN_DENSITY := 280
 # Filesystem
 TARGET_FS_CONFIG_GEN += $(DEVICE_PATH)/config.fs
 
-# HIDL
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+# HIDL & AIDL Manifests
+DEVICE_MANIFEST_FILE += \
+    $(DEVICE_PATH)/manifest.xml \
+    $(DEVICE_PATH)/aidl-wrappers/bluetooth/android.hardware.bluetooth-service.xiaomi.xml \
+    $(DEVICE_PATH)/aidl-wrappers/fingerprint/android.hardware.biometrics.fingerprint-service.xiaomi-wrapper.xml
 
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_xiaomi_mi8937

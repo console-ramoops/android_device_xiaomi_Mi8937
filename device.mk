@@ -71,6 +71,11 @@ PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.fuse.passthrough.enable=true
 endif
 
+# AIDL HAL Wrappers
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth-service.xiaomi \
+    android.hardware.biometrics.fingerprint-service.xiaomi-wrapper
+
 # Fingerprint
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/blankfile:$(TARGET_COPY_OUT_ODM)/bin/gx_fpd
