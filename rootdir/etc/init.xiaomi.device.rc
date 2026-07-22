@@ -61,6 +61,13 @@ on property:ro.vendor.xiaomi.device=prada
 on property:ro.vendor.xiaomi.series=wt8937
     enable vendor.goodix_script
 
+on post-fs-data
+    # Create directories for Fingerprint
+    mkdir /data/vendor/misc/qti_fp 0770 system system
+    mkdir /data/vendor/misc/qti_fp/bg_estimation 0770 system system
+    mkdir /data/vendor/misc/qti_fp/calib_test 0770 system system
+    mkdir /data/vendor/misc/qti_fp/database 0770 system system
+
 # HVDCP
 on property:ro.vendor.xiaomi.series=wt8917
     stop vendor.hvdcp_opti

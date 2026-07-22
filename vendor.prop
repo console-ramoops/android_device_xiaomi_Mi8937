@@ -10,6 +10,9 @@ bluetooth.sco.disable_enhanced_connection=true
 # Xiaomi Mi8937 - Encryption
 ro.crypto.volume.contents_mode=aes-256-xts
 
+# Xiaomi Mi8937 - Fingerprint
+persist.vendor.fingerprint.type=rear
+
 # Xiaomi Mi8937 - SoC
 ro.soc.manufacturer=Qualcomm
 ro.soc.model=MSM8937

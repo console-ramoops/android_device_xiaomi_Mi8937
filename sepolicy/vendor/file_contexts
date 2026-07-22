@@ -16,3 +16,6 @@
 
 # Touchscreen
 /sys/devices(/platform)?/soc/78b7000\.i2c/i2c-3/3-[0-9a-f]+(/.*)?	u:object_r:sysfs_mi8937_ts:s0
+
+# Fingerprint AIDL
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.xiaomi.* u:object_r:hal_fingerprint_default_exec:s0
