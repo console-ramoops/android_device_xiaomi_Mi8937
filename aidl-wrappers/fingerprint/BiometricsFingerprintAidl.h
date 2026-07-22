@@ -12,6 +12,7 @@
 #include <android/hardware/biometrics/fingerprint/2.1/IBiometricsFingerprint.h>
 #include <android/hardware/biometrics/fingerprint/2.1/IBiometricsFingerprintClientCallback.h>
 #include <hidl/HidlSupport.h>
+#include <vector>
 
 namespace aidl {
 namespace android {
@@ -74,8 +75,13 @@ class FingerprintHidlCallback : public IBiometricsFingerprintClientCallback {
     Return<void> onRemoved(uint64_t /*deviceId*/, uint32_t fingerId,
                            uint32_t groupId, uint32_t remaining) override {
         if (mCb) {
-            std::vector<int32_t> enrollments = {static_cast<int32_t>(fingerId)};
-            mCb->onEnrollmentsRemoved(enrollments);
+            if (fingerId != 0) {
+                mRemovedEnrollments.push_back(static_cast<int32_t>(fingerId));
+            }
+            if (remaining == 0) {
+                mCb->onEnrollmentsRemoved(mRemovedEnrollments);
+                mRemovedEnrollments.clear();
+            }
         }
         return Void();
     }
@@ -83,14 +89,21 @@ class FingerprintHidlCallback : public IBiometricsFingerprintClientCallback {
     Return<void> onEnumerate(uint64_t /*deviceId*/, uint32_t fingerId,
                              uint32_t groupId, uint32_t remaining) override {
         if (mCb) {
-            std::vector<int32_t> enrollments = {static_cast<int32_t>(fingerId)};
-            mCb->onEnrollmentsEnumerated(enrollments);
+            if (fingerId != 0) {
+                mEnumeratedEnrollments.push_back(static_cast<int32_t>(fingerId));
+            }
+            if (remaining == 0) {
+                mCb->onEnrollmentsEnumerated(mEnumeratedEnrollments);
+                mEnumeratedEnrollments.clear();
+            }
         }
         return Void();
     }
 
   private:
     std::shared_ptr<ISessionCallback> mCb;
+    std::vector<int32_t> mEnumeratedEnrollments;
+    std::vector<int32_t> mRemovedEnrollments;
 };
 
 class BiometricsFingerprintAidl : public BnFingerprint {

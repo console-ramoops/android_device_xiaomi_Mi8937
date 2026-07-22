@@ -7,6 +7,7 @@
 #include "BiometricsFingerprintAidl.h"
 
 #include <android-base/logging.h>
+#include <cstring>
 
 namespace aidl {
 namespace android {
@@ -73,10 +74,33 @@ SessionAidl::SessionAidl(sp<IBiometricsFingerprint> hidlHal,
 }
 
 ::ndk::ScopedAStatus SessionAidl::enroll(
-    const HardwareAuthToken& /*hat*/,
+    const HardwareAuthToken& hat,
     std::shared_ptr<ICancellationSignal>* /*out_cancel*/) {
     if (mHidlHal != nullptr) {
         hidl_array<uint8_t, 69> hatVec;
+        std::memset(hatVec.data(), 0, 69);
+
+        // HardwareAuthToken 69-byte serialization format:
+        // [0..7] challenge
+        // [8..15] userId
+        // [16..23] authenticatorId
+        // [24..27] authenticatorType (big-endian)
+        // [28..35] timestamp (big-endian)
+        // [36..67] mac (32 bytes)
+        std::memcpy(&hatVec[0], &hat.challenge, sizeof(hat.challenge));
+        std::memcpy(&hatVec[8], &hat.userId, sizeof(hat.userId));
+        std::memcpy(&hatVec[16], &hat.authenticatorId, sizeof(hat.authenticatorId));
+
+        uint32_t authType = __builtin_bswap32(static_cast<uint32_t>(hat.authenticatorType));
+        std::memcpy(&hatVec[24], &authType, sizeof(authType));
+
+        uint64_t timestamp = __builtin_bswap64(static_cast<uint64_t>(hat.timestamp.timestamp));
+        std::memcpy(&hatVec[28], &timestamp, sizeof(timestamp));
+
+        if (hat.mac.size() >= 32) {
+            std::memcpy(&hatVec[36], hat.mac.data(), 32);
+        }
+
         mHidlHal->enroll(hatVec, 0, 60);
     }
     return ::ndk::ScopedAStatus::ok();
