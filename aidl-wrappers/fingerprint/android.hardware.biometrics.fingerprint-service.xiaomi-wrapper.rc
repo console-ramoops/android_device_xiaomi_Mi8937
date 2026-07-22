@@ -1,0 +1,6 @@
+service vendor.fingerprint-service.xiaomi-wrapper /vendor/bin/hw/android.hardware.biometrics.fingerprint-service.xiaomi-wrapper
+    class hal
+    user system
+    group system input uhid
+    capabilities SYS_NICE
+    shutdown critical

@@ -1,0 +1,6 @@
+service vendor.bluetooth-service.xiaomi /vendor/bin/hw/android.hardware.bluetooth-service.xiaomi
+    class hal
+    user bluetooth
+    group bluetooth net_bt_admin system wakelock
+    capabilities NET_ADMIN
+    task_profiles HighPerformance
